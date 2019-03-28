@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :application, "api.rxqiang.cn"
-set :repo_url, "git@github.com:rqiang88/api.rxqiang.cn.git"
+set :application, "api"
+set :repo_url, "https://github.com/rqiang88/api.rxqiang.cn.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

@@ -7,10 +7,10 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server '140.143.208.196', user: 'rxqiang', roles: %w{app web db}, other_property: :other_value
+server '140.143.208.196', user: 'rxq', roles: %w{app web db}, other_property: :other_value
 
-set :rvm_ruby_version, '2.5.3'
-set :user, 'rxqiang'
+set :rvm_ruby_version, '2.4.1'
+set :user, 'rxq'
 set :rails_env, 'production'
 set :puma_env, 'production'
 set :branch, 'master'
