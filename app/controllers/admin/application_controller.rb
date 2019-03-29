@@ -21,7 +21,7 @@ class Admin::ApplicationController < ApplicationController
                   object.errors.full_messages.join(",")
                 end
               end
-    return render json: {status: :fail, msg: message, code: code}
+    return render json: {status: :fail, message: message, code: code}
   end
 
   def response_success(data={}, code=200)
