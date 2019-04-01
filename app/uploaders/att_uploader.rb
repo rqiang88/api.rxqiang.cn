@@ -48,6 +48,9 @@ class AttUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  def url
+    Settings.url + super
+  end
 
   def filename
     if original_filename
