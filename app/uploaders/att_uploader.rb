@@ -49,7 +49,7 @@ class AttUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   def url
-    Settings.url + super
+    File.join(Settings.url, 'uploads', model.class.to_s.underscore, model.id.to_s)
   end
 
   def filename
