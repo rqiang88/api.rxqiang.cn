@@ -1,9 +1,14 @@
 class Api::BlogsController < Api::ApplicationController
+	before_action :set_blog, only: [:show]
 	def index
-		@blogs = Blog.passed.page(params[:page])
+		@blogs = BlogService.new(params).perform
+								.order(id: :desc)
+                .page(params[:page]).per(@per_page)
 	end
 
 	def search
+		index
+		render :index
 	end
 
 	def show

@@ -29,12 +29,12 @@ module RxqBlog
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options, :path, :put, :delete]
-      end
-    end
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*', :headers => :any, :methods => [:get, :post, :options, :path, :put, :delete]
+    #   end
+    # end
 
     config.middleware.use Rack::OAuth2::Server::Resource::Bearer, 'Rack::OAuth2 Protected Resources' do |req|
       req.access_token
