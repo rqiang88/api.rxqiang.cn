@@ -70,6 +70,8 @@ gem 'aasm'
 gem 'by_star', git: "git://github.com/radar/by_star"
 
 gem 'kaminari'
+gem 'kaminari-mongoid'
+gem 'kaminari-actionview'
 
 gem 'carrierwave'
 # json

@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20190219072949) do
     t.bigint "admin_id"
     t.string "source_type"
     t.bigint "source_id"
-    t.json "att_data"
+    t.json "att"
     t.json "info"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false

@@ -17,26 +17,27 @@
 #
 
 class Blog < ApplicationRecord
-	include AASM
+  include AASM
+  
+  belongs_to :user, optional: true 
+  belongs_to :category
 
-	belongs_to :user, optional: true 
-	belongs_to :category
+  delegate :name, to: :category, prefix: true, allow_nil: true
 
-	delegate :name, to: :category, prefix: true, allow_nil: true
+  validates :content, :title, presence: true
+  cattr_accessor :rxq
 
-	validates :content, :title, presence: true
+  aasm do 
+    state :pending, initial: true
+    state :passed
+    state :refused
 
-	aasm do 
-		state :pending, initial: true
-		state :passed
-		state :refused
-
-		event :pass do
+    event :pass do
       transitions from: :pending, to: :passed 
     end
 
     event :refuse do
       transitions from: [:pending, :passed], to: :refused 
     end
-	end
+  end
 end
