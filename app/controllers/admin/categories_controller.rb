@@ -1,18 +1,19 @@
 class Admin::CategoriesController < Admin::ApplicationController
   before_action :set_category, only: [:show, :update, :destroy]
   before_action :set_page, only: [:index, :search]
+  
   def index
     @categories = CategoryService.new(params).search
     @categories = @categories.page(params[:page]).per(@per_page)
   end
 
   def create
-  	category = Category.new(category_params)
-  	if category.save
-  		response_success
-  	else
-  		response_error(category)
-  	end
+    category = Category.new(category_params)
+    if category.save
+      response_success
+    else
+      response_error(category)
+    end
   end
 
   def search
@@ -53,10 +54,10 @@ class Admin::CategoriesController < Admin::ApplicationController
   private
 
   def set_category
-  	@category = Category.find params[:id]
+    @category = Category.find params[:id]
   end
 
   def category_params
-  	params.permit(:name)
+    params.permit(:name)
   end
 end
